@@ -9,4 +9,5 @@
   /usr/bin/find "$DIR1" -type d -empty -exec /usr/bin/touch {}/.keep \;
   /usr/local/bin/git --git-dir="$DIR1/.git" --work-tree="$DIR1/" add --all "$DIR1/"
   /usr/local/bin/git --git-dir="$DIR1/.git" --work-tree="$DIR1" commit --message='' --allow-empty-message
+  ruby -v > ~/r
 done
