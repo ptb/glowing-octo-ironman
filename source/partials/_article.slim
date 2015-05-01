@@ -1,0 +1,28 @@
+article.hentry%blogPost[itemscope itemtype='http://schema.org/BlogPosting']
+  header
+    - unless article.tags.empty?
+      ul.tags@navigation
+        - article.tags.each do |tag, articles|
+          li: a%keywords[href='#{tag_path tag}' rel='tag'] = tag
+
+    == partial 'date', locals: {datetime: article.date}
+    '
+    == partial 'author', locals: {author: locals[:author]}
+    
+    h2.entry-title%headline
+      - if single_article
+        = article.title
+      - else
+        a.permalink%url[href='#{article.url}' rel='bookmark'] = article.title
+
+    - if single_article
+      div.entry-content%articleBody
+        == article_body
+    - else
+      div.entry-summary%description
+        == article_body
+    //
+      div.row.more
+        div.offset8.span4: a[href='#{article.url}'] Continue Reading
+
+hr
