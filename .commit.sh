@@ -11,4 +11,5 @@
   /usr/local/bin/git --git-dir="$DIR1/.git" --work-tree="$DIR1" commit --message='' --allow-empty-message
   ruby -v > ~/r
   which ruby >> ~/r
+  gem list >> ~/r
 done
